@@ -37,6 +37,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+     # Job Portal V2 apps
+    'accounts',
+    'profiles',
+    'companies',
+    'jobs',
+    'applications',
+    'saved_jobs',
+    'notifications',
+    'dashboard',
 ]
 
 MIDDLEWARE = [
