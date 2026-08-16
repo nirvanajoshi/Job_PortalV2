@@ -28,7 +28,12 @@ class Application(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        unique_together = ("job_seeker", "job")
+        constraints = [
+            models.UniqueConstraint(
+                fields=["job_seeker", "job"],
+                name="unique_job_seeker_application",
+            )
+        ]
 
     def __str__(self):
         return f"{self.job_seeker.user.username} -> {self.job.title}"
