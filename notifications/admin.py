@@ -5,8 +5,8 @@ from .models import Notification
 @admin.register(Notification)
 class NotificationAdmin(admin.ModelAdmin):
     list_display = (
-        "recipient",
-        "verb",
+        "user",
+        "title",
         "is_read",
         "created_at",
     )
@@ -15,9 +15,9 @@ class NotificationAdmin(admin.ModelAdmin):
         "created_at",
     )
     search_fields = (
-        "recipient__username",
-        "recipient__email",
-        "verb",
+        "user__username",
+        "user__email",
+        "title",
         "description",
     )
     readonly_fields = ("created_at",)
@@ -27,9 +27,9 @@ class NotificationAdmin(admin.ModelAdmin):
             "Notification Information",
             {
                 "fields": (
-                    "recipient",
-                    "verb",
-                    "description",
+                    "user",
+                    "title",
+                    "message",
                     "target_url",
                     "is_read",
                 )

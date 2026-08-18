@@ -9,13 +9,13 @@ class JobAdmin(admin.ModelAdmin):
         "company",
         "job_type",
         "location",
-        "is_active",
-        "posted_at",
+        "status",
+        "created_at",
     )
     list_filter = (
         "job_type",
-        "is_active",
-        "posted_at",
+        "status",
+        "created_at",
     )
     search_fields = (
         "title",
@@ -23,7 +23,7 @@ class JobAdmin(admin.ModelAdmin):
         "company__name",
         "location",
     )
-    readonly_fields = ("posted_at", "updated_at")
+    readonly_fields = ("created_at", "updated_at")
     
     fieldsets = (
         ("Job Details", {
@@ -38,17 +38,17 @@ class JobAdmin(admin.ModelAdmin):
         }),
         ("Status", {
             "fields": (
-                "is_active",
+                "status",
             )
         }),
         ("Timestamps", {
             "fields": (
-                "posted_at",
+                "created_at",
                 "updated_at",
             ),
             "classes": ("collapse",),
         }),
     )
     
-    ordering = ("-posted_at",)
-    date_hierarchy = "posted_at"
+    ordering = ("-created_at",)
+    date_hierarchy = "created_at"

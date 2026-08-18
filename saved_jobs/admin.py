@@ -5,37 +5,34 @@ from .models import SavedJob
 @admin.register(SavedJob)
 class SavedJobAdmin(admin.ModelAdmin):
     list_display = (
-        "user",
+        "job_seeker",
         "job",
-        "saved_at",
+        "created_at",
     )
-    list_filter = ("saved_at",)
+    list_filter = ("created_at",)
     search_fields = (
         "user__username",
         "user__email",
         "job__title",
         "job__company__name",
     )
-    readonly_fields = ("saved_at",)
+    readonly_fields = ("created_at",)
 
     fieldsets = (
         (
             "Saved Job Details",
             {
-                "fields": (
-                    "user",
+                "fields": (                    "job_seeker",
                     "job",
                 )
             },
         ),
-        (
-            "Timestamps",
-            {
-                "fields": ("saved_at",),
+        ("Timestamps", {
+            "fields": ("created_at",),
                 "classes": ("collapse",),
             },
         ),
     )
 
-    ordering = ("-saved_at",)
-    date_hierarchy = "saved_at"
+    ordering = ("-created_at",)
+    date_hierarchy = "created_at"
