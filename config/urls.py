@@ -26,4 +26,5 @@ urlpatterns = [
     path('jobs/', include('jobs.urls')),
     path('notifications/', include('notifications.urls')),
     path('profiles/', include('profiles.urls')),
+    path('saved-jobs/', include('saved_jobs.urls')),
 ]
